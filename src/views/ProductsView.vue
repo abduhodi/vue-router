@@ -2,6 +2,7 @@
   <div class="container-fluid px-5 mt-5">
     <div class="row d-flex gap-1 flex-wrap" style="margin-top: 300px">
       <router-link
+        style="text-decoration: none"
         class="custom-card mb-4"
         v-for="(car, index) in products"
         :key="index"
