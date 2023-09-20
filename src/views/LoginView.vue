@@ -4,30 +4,37 @@
       <div class="col-6 offset-3">
         <form
           id="form"
-          ref="btn"
           class="form form-control d-flex justify-content-center gap-3 flex-column w-100 p-5"
         >
           <h2 class="text-center mt-3">Login</h2>
           <input
-            ref="email"
+            @input="email"
             type="email"
-            placeholder="Your email"
+            placeholder="example@mail.ru"
             required
             class="form-control py-2"
           />
           <input
-            ref="password"
+            @input="password"
             type="password"
-            placeholder="Password"
+            placeholder="123456"
             required
             class="form-control py-2"
           />
-          <router-link to="/products" class="btn btn-primary py-2 mt-3 mb-3"
+          <router-link
+            v-if="valid_email & valid_pass"
+            to="/products"
+            class="btn btn-primary py-2 mt-3 mb-3"
             >Login</router-link
           >
-          <!-- <button type="button" class="btn btn-primary py-2 mt-3 mb-3">
+          <button
+            v-else
+            ref="btn"
+            type="button"
+            class="btn btn-primary py-2 mt-3 mb-3"
+          >
             Login
-          </button> -->
+          </button>
         </form>
       </div>
     </div>
@@ -35,18 +42,20 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-const btn = ref();
-const email = ref();
-const password = ref();
-onMounted(() => {
-  btn.value.addEventListener("onsubmit", (e) => {
-    if (email.value.value !== "asaker@mail.ru" || password !== "123456") {
-      console.log("error");
-    }
-    document.location.href = "/products";
-  });
-});
+import { ref } from "vue";
+
+const email = (e) => {
+  if (e.target.value == "example@mail.ru") {
+    valid_email.value = true;
+  }
+};
+const password = (e) => {
+  if (e.target.value == "123456") {
+    valid_pass.value = true;
+  }
+};
+const valid_email = ref(false);
+const valid_pass = ref(false);
 </script>
 
 <style lang="scss" scoped></style>
