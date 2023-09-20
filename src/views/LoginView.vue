@@ -3,36 +3,24 @@
     <div class="row w-100">
       <div class="col-6 offset-3">
         <form
+          @submit="go"
           id="form"
           class="form form-control d-flex justify-content-center gap-3 flex-column w-100 p-5"
         >
           <h2 class="text-center mt-3">Login</h2>
           <input
-            @input="email"
             type="email"
             placeholder="example@mail.ru"
             required
             class="form-control py-2"
           />
           <input
-            @input="password"
             type="password"
             placeholder="123456"
             required
             class="form-control py-2"
           />
-          <router-link
-            v-if="valid_email & valid_pass"
-            to="/products"
-            class="btn btn-primary py-2 mt-3 mb-3"
-            >Login</router-link
-          >
-          <button
-            v-else
-            ref="btn"
-            type="button"
-            class="btn btn-primary py-2 mt-3 mb-3"
-          >
+          <button type="submit" class="btn btn-primary py-2 mt-3 mb-3">
             Login
           </button>
         </form>
@@ -42,20 +30,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-const email = (e) => {
-  if (e.target.value == "example@mail.ru") {
-    valid_email.value = true;
-  }
+import { useRouter } from "vue-router";
+const router = useRouter();
+const go = () => {
+  router.push({ name: "products" });
 };
-const password = (e) => {
-  if (e.target.value == "123456") {
-    valid_pass.value = true;
-  }
-};
-const valid_email = ref(false);
-const valid_pass = ref(false);
 </script>
 
 <style lang="scss" scoped></style>
