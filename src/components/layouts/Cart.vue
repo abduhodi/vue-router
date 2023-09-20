@@ -16,13 +16,15 @@
       <p class="card-title">
         {{ props?.data?.title }}
       </p>
-      <span class="card-rate">
+      <span class="card-rate mt-1">
         <icon name="star"></icon>
         <span>{{ props?.data?.rate?.value }}</span>
         <span>({{ props?.data?.rate?.count }} baho)</span>
       </span>
-      <span class="card-sale">1 680 so'm/oyiga</span>
-      <p class="cart-footer d-flex justify-content-between align-items-center">
+      <span class="card-sale mt-1">1 680 so'm/oyiga</span>
+      <p
+        class="cart-footer d-flex justify-content-between align-items-center mt-2"
+      >
         <span class="card-price d-flex flex-column">
           <span class="price-old">21 000 so'm</span>
           <span class="price-new">{{ props?.data?.price }} so'm</span>
