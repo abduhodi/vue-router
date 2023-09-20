@@ -143,4 +143,33 @@ const products = ref([
 .custom-card {
   width: calc((100% - 2rem) / 5);
 }
+@media (max-width: 1200px) {
+  .custom-card {
+    width: calc((100% - 2rem) / 4);
+  }
+}
+@media (max-width: 991px) {
+  .container,
+  .container-fluid {
+    padding: 0 !important;
+  }
+  .row {
+    justify-content: center;
+  }
+  .custom-card {
+    width: calc((100% - 2rem) / 3);
+  }
+}
+@media (max-width: 639px) {
+  .container,
+  .container-fluid {
+    padding: 0 !important;
+  }
+  .row {
+    justify-content: center;
+  }
+  .custom-card {
+    width: calc((100% - 2rem) / 2);
+  }
+}
 </style>

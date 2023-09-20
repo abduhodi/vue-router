@@ -15,7 +15,7 @@
           />
         </div>
       </div>
-      <div class="h-100 px-0" style="width: 420px">
+      <div class="h-100 px-0 main-image" style="width: 420px">
         <img
           :src="product.url[imageId] || product.url[0]"
           alt="img"
@@ -27,7 +27,7 @@
           "
         />
       </div>
-      <div class="col ms-5 W-100 position-relative">
+      <div class="col ms-md-5 W-100 position-relative image-body">
         <div class="reaction position-absolute" @click="likeIt">
           <icon :name="heart"></icon> Istaklarga
         </div>
@@ -59,7 +59,7 @@
           <span class="card-sale">Oyiga 1 680 so'mdan</span> muddatli to'lov
         </div>
         <div class="row">
-          <div class="con-12 px-0 d-flex gap-3">
+          <div class="col-12 px-0 d-flex gap-3 footer-btn">
             <button class="col btn btn-primary py-3 mt-5">
               Savatga qo'shish
             </button>
@@ -294,5 +294,43 @@ const likeIt = () => {
 }
 .add-cart {
   height: 28px;
+}
+
+@media (max-width: 639px) {
+  .cards-wrapper {
+    flex-wrap: wrap;
+  }
+  .side-images {
+    width: 20%;
+  }
+  .main-image {
+    width: 300px !important;
+  }
+  .cards-wrapper {
+    height: 300px !important;
+  }
+  .card-title {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 425px) {
+  .side-images {
+    display: none;
+  }
+  .container {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .footer-btn {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+  .cards-wrapper {
+    width: 100% !important;
+  }
+  .image-body {
+    padding: 0 !important;
+  }
 }
 </style>
